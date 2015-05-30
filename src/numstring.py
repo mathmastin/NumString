@@ -2,6 +2,7 @@
 __author__ = 'Matt Mastin'
 
 import itertools
+import cartgen
 
 
 class NumString(object):
@@ -94,8 +95,9 @@ class NSPIterator(object):
 
 
 class NSPGenerator(object):
-    """Generator to create NumStringPiles"""
+    """Generator to create NumStringPiles
 
+    """
     def __init__(self, stringsize=0):
         self.stringsize = stringsize
         self.sets = []
@@ -104,8 +106,4 @@ class NSPGenerator(object):
         for i in range(0, self.stringsize):
             self.sets.append(range(0, self.stringsize))
 
-    def _getstring(self, index):
-        return self.sets[index]
-
-    def gen(self):
-        pass
+        self.gen = cartgen.cart_prod(self.sets)
