@@ -1,4 +1,4 @@
-## Class definitions and methods for the NumString Python class
+# Class definitions and methods for the NumString Python class
 __author__ = 'Matt Mastin'
 
 import itertools
@@ -33,6 +33,10 @@ class NumString(object):
             outstring = str(self.digits[0])
 
         return outstring
+
+    def __eq__(self, other):
+        """Overload equality"""
+        return self.digits == other.digits
 
     def fixtotal(self):
         """Call to reset sum to correct value"""
@@ -82,6 +86,10 @@ class NSPIterator(object):
         else:
             self.step = 0
 
+    def __iter__(self):
+        """Returns the iterator"""
+        return self
+
     def next(self):
         """Returns the next element in the pile"""
         if self.step == 0:
@@ -89,15 +97,12 @@ class NSPIterator(object):
         self.step -= 1
         return self.itpile.pile[(self.pilelength - 1) - self.step]
 
-    def __iter__(self):
-        """Returns the iterator"""
-        return self
-
 
 class NSPGenerator(object):
     """Generator to create NumStringPiles
 
     """
+
     def __init__(self, stringsize=0):
         self.stringsize = stringsize
         self.sets = []

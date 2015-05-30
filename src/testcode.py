@@ -1,7 +1,6 @@
 __author__ = 'Matt Mastin'
 
 import numstring
-import cartgen
 
 s = numstring.NumStringPile(3)
 
@@ -14,3 +13,5 @@ t = numstring.NSPGenerator(9)
 
 for i in range(0,50):
     print t.gen.next()
+
+print t.gen.next() == t.gen.next()
