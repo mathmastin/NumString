@@ -1,8 +1,16 @@
-import NSM
+__author__ = 'Matt Mastin'
 
-s = NSM.NumStringPile(3)
+import numstring
 
-it = NSM.NSPIterator(s)
+s = numstring.NumStringPile(3)
 
-for i in it:
-    print(i)
+it = numstring.NSPIterator(s)
+
+# for i in it:
+#    print(i)
+
+t = numstring.NSPGenerator(2)
+
+g = t.gen()
+
+
