@@ -1,5 +1,5 @@
 import NSM
 
-s = NSM.NumStringPile(6)
+s = NSM.NumStringPile(0)
 
 print s

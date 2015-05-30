@@ -18,16 +18,15 @@ class NumString:
         :type digits: list
         """
         self.digits = digits
-        self.Total = sum(self.digits)
-        self.Size = len(self.digits)
+        self.total = sum(self.digits)
+        self.size = len(self.digits)
 
-    @property
     def __str__(self):
         """Return string type for NumString()
 
         :rtype : string
         """
-        if self.Size > 1:
+        if self.size > 1:
             outstring = ','.join(str(d) for d in self.digits)
         else:
             outstring = str(self.digits[0])
@@ -36,7 +35,7 @@ class NumString:
 
     def fixtotal(self):
         """Call to reset sum to correct value"""
-        self.Total = sum(self.digits)
+        self.total = sum(self.digits)
 
 
 class NumStringPile:
@@ -53,21 +52,20 @@ class NumStringPile:
         Size will default to 0 creating an empty Pile
         """
         self.size = size
-        self.ToNums = itertools.product(range(0, size), repeat=self.size)
-        self.Pile = []
-        for i in self.ToNums:
-            self.Pile.append(NumString(i))
+        self.nums = itertools.product(range(0, size), repeat=self.size)
+        self.pile = []
+        for i in self.nums:
+            self.pile.append(NumString(i))
 
-    @property
     def __str__(self):
         """Return string type for NumStringPile()
 
         :rtype : string
         """
         if self.size == 0:
-            outstring = "Empty Pile"
+            outstring = 'Empty Pile'
         else:
-            outstring = ';'.join(str(x) for x in self.Pile)
+            outstring = ';'.join(str(x) for x in self.pile)
         return outstring
 
     def __iter__(self):
