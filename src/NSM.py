@@ -4,7 +4,7 @@
 import itertools
 
 
-class NumString:
+class NumString(object):
     """NumString class
 
     """
@@ -37,8 +37,7 @@ class NumString:
         """Call to reset sum to correct value"""
         self.total = sum(self.digits)
 
-
-class NumStringPile:
+class NumStringPile(object):
     """NumStringPile class
 
     The NumStringPile is a list of all possible NumStrings
@@ -68,8 +67,23 @@ class NumStringPile:
             outstring = ';'.join(str(x) for x in self.pile)
         return outstring
 
-    def __iter__(self):
-        """Defines the iteration of a NumStringPile
+class NSPIterator(object):
+    """Iterator for NumStringPile"""
+    def __init__(self,itpile=None):
+        self.itpile = itpile
+        if self.itpile != None:
+            self.pilelength = self.itpile.size
+            self.step = self.pilelength
+        else:
+            self.step = 0
 
-        :type self: NumStringPile
-        """
+    def next(self):
+        """Returns the next element in the pile"""
+        if self.step == 0:
+            raise StopIteration
+        self.step -= 1
+        return self.itpile.pile[self.pilelength - self.step]
+
+    def __iter__(self):
+        """Returns the iterator"""
+        return self

@@ -1,5 +1,8 @@
 import NSM
 
-s = NSM.NumStringPile(0)
+s = NSM.NumStringPile(3)
 
-print s
+it = NSM.NSPIterator(s)
+
+for i in it:
+    print(i)
