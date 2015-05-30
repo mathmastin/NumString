@@ -9,9 +9,6 @@ it = numstring.NSPIterator(s)
 # for i in it:
 #    print(i)
 
-t = numstring.NSPGenerator(9)
+t = numstring.NSPGenerator(2)
 
-for i in range(0,50):
-    print t.gen.next()
-
-print t.gen.next() == t.gen.next()
+print t.getnum() == t.getnum()

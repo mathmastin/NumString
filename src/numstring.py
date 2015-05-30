@@ -1,4 +1,3 @@
-# Class definitions and methods for the NumString Python class
 __author__ = 'Matt Mastin'
 
 import itertools
@@ -101,6 +100,7 @@ class NSPIterator(object):
 class NSPGenerator(object):
     """Generator to create NumStringPiles
 
+    This should be used for piles of large NumStrings
     """
 
     def __init__(self, stringsize=0):
@@ -112,3 +112,7 @@ class NSPGenerator(object):
             self.sets.append(range(0, self.stringsize))
 
         self.gen = cartgen.cart_prod(self.sets)
+
+    def getnum(self):
+        """Returns the NumString corresponding to the next element yielded by self.gen"""
+        return NumString(self.gen.next())
