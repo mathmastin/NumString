@@ -1,55 +1,77 @@
-#Class definitions and methods for the NumString Python class
-#
+## Class definitions and methods for the NumString Python class
+## Matt Mastin
 
 import itertools
 
-class NumString():
+
+class NumString:
     """NumString class
 
     """
-    def __init__(self, Digits=[]):
+
+    def __init__(self, digits=None):
         """Constructor for NumString()
 
-        
+        Generates a NumString from the given list
+        A NumString is empty by default
+
+        :type digits: list
         """
-        self.Digits = Digits
-        self.Total = sum(self.Digits)
-        self.Size = len(self.Digits)
+        self.digits = digits
+        self.Total = sum(self.digits)
+        self.Size = len(self.digits)
 
-    
+    @property
     def __str__(self):
-        """Return string type for NumString()"""
+        """Return string type for NumString()
+
+        :rtype : string
+        """
         if self.Size > 1:
-            OutString = ','.join(str(d) for d in self.Digits)
+            outstring = ','.join(str(d) for d in self.digits)
         else:
-            OutString = str(self.Digits[0])
+            outstring = str(self.digits[0])
 
-        return OutString
+        return outstring
 
-    def FixTotal(self):
+    def fixtotal(self):
         """Call to reset sum to correct value"""
-        self.Total = sum(self.Digits)
+        self.Total = sum(self.digits)
 
-class NumStringPile():
+
+class NumStringPile:
     """NumStringPile class
 
+    The NumStringPile is a list of all possible NumStrings
+    of a given Size
     """
-    def __init__(self, Size=0):
+
+    def __init__(self, size=0):
         """Constructor for NumStringPile()
 
-
+        Generates a list of all NumStrings of length Size
+        Size will default to 0 creating an empty Pile
         """
-        self.Size = Size
-        self.ToNums=itertools.product(range(0,Size),repeat=self.Size)
-        self.Pile=[]
+        self.size = size
+        self.ToNums = itertools.product(range(0, size), repeat=self.size)
+        self.Pile = []
         for i in self.ToNums:
             self.Pile.append(NumString(i))
 
+    @property
     def __str__(self):
-        """Return string type for NumStringPile()"""
-        if self.Size==0:
-            OutString =  "Empty Pile"
-        else:
-            OutString = ';'.join(str(x) for x in self.Pile)
+        """Return string type for NumStringPile()
 
-        return OutString
+        :rtype : string
+        """
+        if self.size == 0:
+            outstring = "Empty Pile"
+        else:
+            outstring = ';'.join(str(x) for x in self.Pile)
+        return outstring
+
+    def __iter__(self):
+        """Defines the iteration of a NumStringPile
+
+        :type self: NumStringPile
+        """
