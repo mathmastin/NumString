@@ -3,19 +3,32 @@ __author__ = 'Matt Mastin'
 import numcass
 import numstring
 
-s = numstring.NumStringPile(3)
+#s = numstring.NumStringPile(3)
 
-it = numstring.NSPIterator(s)
+#print s
 
-print s
+#it = numstring.NSPIterator(s)
 
-t = numstring.NSPGenerator(2)
+#for i in it:
+#    print i
 
-print t.getnum() == t.getnum()
+#t = numstring.NSPGenerator(2)
 
-ins = numcass.NumCass(['10.104.251.45'],"numstring3",3)
+#print t.getnum() == t.getnum()
+
+#ins = numcass.NumCass(['10.104.251.45'], 'numstring3', 3)
 
 #ins.insertpile()
 
-for i in ins.getgen():
-    print i
+#for i in ins.getgen():
+#    print i
+
+cass = numcass.NumKeyspace(2, ['10.104.251.45'])
+
+#cass.createnumkeyspace()
+
+#ins = numcass.NumCass(['10.104.251.45'], 'numstring2', 2)
+
+#ins.insertpile()
+
+cass.deletenumkeyspace()
