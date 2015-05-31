@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="867f5886-dce6-41dd-875d-a16771a9e771" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/numcass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/numcass.py" afterPath="$PROJECT_DIR$/src/numcass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testcode.py" afterPath="$PROJECT_DIR$/src/testcode.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NumString.iws" />
@@ -38,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/src/numstring.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
               <folding>
                 <element signature="e#28#44#0" expanded="true" />
               </folding>
@@ -50,9 +51,9 @@
         <entry file="file://$PROJECT_DIR$/src/testcode.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+              <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
               <folding>
-                <element signature="e#28#44#0" expanded="true" />
+                <element signature="e#28#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,9 +62,11 @@
       <file leaf-file-name="numcass.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/numcass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14886165">
-              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-              <folding />
+            <state vertical-scroll-proportion="0.44658494">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding>
+                <element signature="e#21#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,8 +89,8 @@
         <option value="$PROJECT_DIR$/src/TestCode.py" />
         <option value="$PROJECT_DIR$/src/NSM.py" />
         <option value="$PROJECT_DIR$/src/cartgen.py" />
-        <option value="$PROJECT_DIR$/src/testcode.py" />
         <option value="$PROJECT_DIR$/src/numstring.py" />
+        <option value="$PROJECT_DIR$/src/testcode.py" />
         <option value="$PROJECT_DIR$/src/numcass.py" />
       </list>
     </option>
@@ -389,7 +392,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433083122691</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added numcass.py to begin implementation of the cassandra interface for NumStrings.">
+      <created>1433083219663</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1433083219663</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -433,7 +442,8 @@
     <MESSAGE value="Removed decorations in NSM.py" />
     <MESSAGE value="Added iterator for NumStringPile." />
     <MESSAGE value="Work on generator for NumStringPile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Work on generator for NumStringPile." />
+    <MESSAGE value="Added numcass.py to begin implementation of the cassandra interface for NumStrings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added numcass.py to begin implementation of the cassandra interface for NumStrings." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -463,7 +473,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
-            <element signature="e#28#44#0" expanded="true" />
+            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -481,7 +491,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#28#44#0" expanded="true" />
+            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -499,7 +509,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#28#44#0" expanded="true" />
+            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -517,7 +527,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#28#44#0" expanded="true" />
+            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -527,7 +537,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding>
-            <element signature="e#28#44#0" expanded="true" />
+            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -555,20 +565,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/numstring.py">
+    <entry file="file://$PROJECT_DIR$/src/testcode.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
           <folding>
-            <element signature="e#28#44#0" expanded="true" />
+            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testcode.py">
+    <entry file="file://$PROJECT_DIR$/src/numstring.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding>
             <element signature="e#28#44#0" expanded="true" />
           </folding>
@@ -577,9 +587,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/numcass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14886165">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          <folding />
+        <state vertical-scroll-proportion="0.44658494">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding>
+            <element signature="e#21#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
