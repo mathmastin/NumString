@@ -8,7 +8,6 @@ class NumString(object):
     """NumString class
 
     """
-
     def __init__(self, digits=None):
         """Constructor for NumString()
 
