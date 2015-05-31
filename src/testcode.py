@@ -15,4 +15,7 @@ print t.getnum() == t.getnum()
 
 ins = numcass.NumCass(['10.104.251.45'],"numstring3",3)
 
-ins.insertpile()
+#ins.insertpile()
+
+for i in ins.getgen():
+    print i

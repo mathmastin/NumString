@@ -116,6 +116,9 @@ class NSPGenerator(object):
         return NumString(self.gen.next())
 
     def getgen(self):
-        """Returns a generator for the NumStringPile"""
+        """Returns a generator for the NumStringPile
+
+        :rtype : generator
+        """
         for x in self.gen:
             yield NumString(x)

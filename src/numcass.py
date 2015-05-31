@@ -1,4 +1,4 @@
-__author__ = 'Matt'
+__author__ = 'Matt Mastin'
 
 import numstring
 from cassandra.cluster import Cluster
@@ -6,8 +6,14 @@ from cassandra.cluster import Cluster
 
 class NumCass(numstring.NSPGenerator):
     def __init__(self, hosts=None, keyspace=None, stringsize=0):
+        """Subclass constructor NumCass
+
+        hosts will default to localhost, but keyspace must be provided
+        """
         if not hosts:
             hosts = ['localhost']
+        if not keyspace:
+            raise ValueError("Name of keyspace must be provided.")
         super(NumCass, self).__init__(stringsize)
         self.cluster = Cluster(hosts)
         self.keyspace = keyspace
