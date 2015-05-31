@@ -1,5 +1,6 @@
 __author__ = 'Matt Mastin'
 
+import cassandra
 import numstring
 
 s = numstring.NumStringPile(3)
