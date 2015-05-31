@@ -56,7 +56,7 @@ class NumStringPile(object):
         This will build the pile in memory, so be warned
         """
         self.stringsize = stringsize
-        self.nums = itertools.product(range(0, self.stringsize), repeat=self.stringsize)
+        self.nums = itertools.product(range(0, 10), repeat=self.stringsize)
         self.pile = []
         for i in self.nums:
             self.pile.append(NumString(i))
@@ -101,17 +101,21 @@ class NSPGenerator(object):
 
     This should be used for piles of large NumStrings
     """
-
     def __init__(self, stringsize=0):
         self.stringsize = stringsize
         self.sets = []
         self.count = 0
 
         for i in range(0, self.stringsize):
-            self.sets.append(range(0, self.stringsize))
+            self.sets.append(range(0, 10))
 
         self.gen = cartgen.cart_prod(self.sets)
 
     def getnum(self):
         """Returns the NumString corresponding to the next element yielded by self.gen"""
         return NumString(self.gen.next())
+
+    def getgen(self):
+        """Returns a generator for the NumStringPile"""
+        for x in self.gen:
+            yield NumString(x)

@@ -7,11 +7,12 @@ s = numstring.NumStringPile(3)
 
 it = numstring.NSPIterator(s)
 
-# for i in it:
-#    print(i)
+print s
 
 t = numstring.NSPGenerator(2)
 
 print t.getnum() == t.getnum()
 
-ins = numcass.NumCass(['10.104.251.45'],"NumString0")
+ins = numcass.NumCass(['10.104.251.45'],"numstring3",3)
+
+ins.insertpile()

@@ -1,5 +1,6 @@
 __author__ = 'Matt Mastin'
 
+import numstring
 
 def cart_prod(sets):
     """Gives a generator for the cartesian product
