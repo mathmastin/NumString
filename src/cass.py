@@ -16,4 +16,6 @@ class CassController(object):
 
     def deletekeyspace(self):
         if self.keyspace is not None:
-            self.session.execute("DROP KEYSPACE " + self.keyspace)
+            self.session.execute_async("DROP KEYSPACE IF EXISTS " + self.keyspace)
+        else:
+            raise ValueError("keyspace of None recieved by deletekeyspace")
