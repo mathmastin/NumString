@@ -2,7 +2,6 @@ __author__ = 'Matt Mastin'
 
 import numstring
 import cass
-from cassandra.cluster import Cluster
 
 
 class NumCass(numstring.NSPGenerator):
