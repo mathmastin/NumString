@@ -29,18 +29,31 @@ class NumCass(numstring.NSPGenerator):
         pass
 
     def create(self):
+        """Create the Keyspace"""
         self.controller._createnumkeyspace()
 
     def delete(self):
+        """Delete the Keyspace"""
         self.controller._deletenumkeyspace()
+
+    def numquery(self, cqlstatement):
+        """Yields a generator into the results of the query cqlstatement
+        Note that we shouldn't need to explicitly include the name of the
+        keyspace
+        """
+        results = self.controller.query(cqlstatement)
+        for i in results:
+            # The query yields a unicode list of the digits, so we must format and cast
+            # to a list of ints to send to the constructor of NumString
+            yield numstring.NumString(map(int,str(i[0]).lstrip('(').rstrip(')').split(',')))
 
 
 class NumKeyspace(cass.CassController):
+    """Subcalss of CassController for use by NumCass"""
     def __init__(self, stringsize=1, hosts=None):
         super(NumKeyspace, self).__init__(hosts)
-
-        self.keyspace = 'numstring' + str(stringsize)
         self.stringsize = stringsize
+        self.keyspace = 'numstring' + str(stringsize)
 
     def _createnumkeyspace(self):
         """Creates a keyspace using the NumString data model"""
@@ -48,11 +61,18 @@ class NumKeyspace(cass.CassController):
             "CREATE KEYSPACE IF NOT EXISTS numstring%s WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }",
             [self.stringsize])
 
+        # Set the keyspace of the session
         self.session.set_keyspace(self.keyspace)
 
+        # This will pass "USE keyspace" to the cluster so we do not need
+        # to specify the keyspace in queries
+        self.usekeyspace(self.keyspace)
+
+        # Now we create the tables
         for i in range(0, 10):
             self.session.execute(
                 "CREATE TABLE IF NOT EXISTS start%s (num_string varchar PRIMARY KEY, total int, comp int)", [i])
 
     def _deletenumkeyspace(self):
+        """Deletes the keyspace associated to the NumKeyspace"""
         self.deletekeyspace()

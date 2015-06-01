@@ -33,6 +33,9 @@ cont.create()
 
 cont.insertpile()
 
-#cont.insertpile()
-
 #cass.deletenumkeyspace()
+
+elts = cont.numquery("SELECT * FROM start0")
+
+for i in elts:
+    print i
