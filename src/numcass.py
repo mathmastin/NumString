@@ -8,6 +8,9 @@ class NumCass(numstring.NSPGenerator):
     def __init__(self, hosts=None, stringsize=0):
         """Subclass constructor for NumCass
 
+        This class is mainly for insertion of a NumStringPile into Cassandra
+        Use NumKeyspace to access an existing Pile.
+
         hosts will default to localhost, but keyspace must be provided
 
         :type stringsize: int
@@ -32,26 +35,15 @@ class NumCass(numstring.NSPGenerator):
         """Delete the Keyspace"""
         self.controller.deletenumkeyspace()
 
-    def numquery(self, cqlstatement):
-        """Yields a generator into the results of the query cqlstatement
-        Note that we shouldn't need to explicitly include the name of the
-        keyspace
-        """
-        results = self.controller.query(cqlstatement)
-        for i in results:
-            # The query yields a unicode version of the digits, so we must format and cast
-            # to a list of ints to send to the constructor of NumString
-            if self.stringsize > 1:
-                yield numstring.NumString(map(int, str(i[0]).lstrip('(').rstrip(')').split(',')))
-            else:
-                yield numstring.NumString([int(i[0][1])])
-
     def attachkeyspace(self):
         self.controller.usekeyspace(self.controller.keyspace)
 
 
 class NumKeyspace(cass.CassController):
-    """Subcalss of CassController for use by NumCass"""
+    """Subcalss of CassController for use by NumCass
+
+    Used for interacting with a NumStringPile that lives in a Cassandra keyspace
+    """
 
     def __init__(self, stringsize=1, hosts=None):
         super(NumKeyspace, self).__init__(hosts)
@@ -80,3 +72,21 @@ class NumKeyspace(cass.CassController):
     def deletenumkeyspace(self):
         """Deletes the keyspace associated to the NumKeyspace"""
         self.deletekeyspace()
+
+    def numquery(self, cqlstatement):
+        """Yields a generator into the results of the query cqlstatement
+        Note that we shouldn't need to explicitly include the name of the
+        keyspace
+        """
+
+        # We assume that if a query is called then the keyspace exists and should be used
+        self.usekeyspace(self.keyspace)
+
+        results = self.query(cqlstatement)
+        for i in results:
+            # The query yields a unicode version of the digits, so we must format and cast
+            # to a list of ints to send to the constructor of NumString
+            if self.stringsize > 1:
+                yield numstring.NumString(map(int, str(i[0]).lstrip('(').rstrip(')').split(',')))
+            else:
+                yield numstring.NumString([int(i[0][1])])

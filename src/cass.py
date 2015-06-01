@@ -35,4 +35,3 @@ class CassController(object):
 
         if self.keyspace is not None:
             self.session.execute("USE " + self.keyspace)
-
