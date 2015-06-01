@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="numcass.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="numcass.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/numcass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.8530852">
+              <caret line="91" column="35" selection-start-line="91" selection-start-column="35" selection-end-line="91" selection-end-column="35" />
               <folding>
                 <element signature="e#28#44#0" expanded="true" />
               </folding>
@@ -69,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testcode.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testcode.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/testcode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22037219">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
               <folding>
                 <element signature="e#28#42#0" expanded="true" />
               </folding>
@@ -495,7 +495,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433174013742</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="General commenting improvements">
+      <created>1433174896555</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1433174896555</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -558,7 +564,8 @@
     <MESSAGE value="Cleared out some unused imports." />
     <MESSAGE value="Tweeks to NumString casting for query in numcass.py" />
     <MESSAGE value="Reorganization of numcass. NumKeyspace should now be used to interact with an existing keyspace and NumCass should be used to create a new Pile in a keyspace." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorganization of numcass. NumKeyspace should now be used to interact with an existing keyspace and NumCass should be used to create a new Pile in a keyspace." />
+    <MESSAGE value="General commenting improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="General commenting improvements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -787,22 +794,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/numcass.py">
+    <entry file="file://$PROJECT_DIR$/src/testcode.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
           <folding>
-            <element signature="e#28#44#0" expanded="true" />
+            <element signature="e#28#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testcode.py">
+    <entry file="file://$PROJECT_DIR$/src/numcass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22037219">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8530852">
+          <caret line="91" column="35" selection-start-line="91" selection-start-column="35" selection-end-line="91" selection-end-column="35" />
           <folding>
-            <element signature="e#28#42#0" expanded="true" />
+            <element signature="e#28#44#0" expanded="true" />
           </folding>
         </state>
       </provider>

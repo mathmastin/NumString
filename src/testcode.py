@@ -2,6 +2,7 @@ __author__ = 'Matt Mastin'
 
 import numcass
 import numstring
+import cassandra
 
 # s = numstring.NumStringPile(3)
 
@@ -35,11 +36,15 @@ import numstring
 
 #cont.delete()
 
-numkey = numcass.NumKeyspace(1, ['10.104.251.45'])
+numkey = numcass.NumKeyspace(2, ['10.104.251.45'])
 
 #elts = cont.numquery("SELECT * FROM start0 WHERE num_string = '(1, 2)'")
 
 elts = numkey.numquery("SELECT * FROM start1")
 
-for i in elts:
-    print i
+
+try:
+    for i in elts:
+        print i
+except cassandra.InvalidRequest as e:
+    print "Keyspace does not exist."

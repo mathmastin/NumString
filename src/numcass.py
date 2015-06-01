@@ -2,6 +2,7 @@ __author__ = 'Matt Mastin'
 
 import numstring
 import cass
+import cassandra
 
 
 class NumCass(numstring.NSPGenerator):
