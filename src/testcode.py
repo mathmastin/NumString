@@ -27,11 +27,9 @@ import numstring
 
 #cass.createnumkeyspace()
 
-#cont = numcass.NumCass(['10.104.251.45'], 6)
+#cont = numcass.NumCass(['10.104.251.45'], 1)
 
 #cont.create()
-
-#cont.attachkeyspace()
 
 #cont.insertpile()
 
@@ -41,7 +39,7 @@ numkey = numcass.NumKeyspace(1, ['10.104.251.45'])
 
 #elts = cont.numquery("SELECT * FROM start0 WHERE num_string = '(1, 2)'")
 
-#elts = numkey.numquery("SELECT * FROM start0")
+elts = numkey.numquery("SELECT * FROM start1")
 
-#for i in elts:
-#    print i
+for i in elts:
+    print i

@@ -35,8 +35,8 @@ class NumCass(numstring.NSPGenerator):
         """Delete the Keyspace"""
         self.controller.deletenumkeyspace()
 
-    def attachkeyspace(self):
-        self.controller.usekeyspace(self.controller.keyspace)
+    #def attachkeyspace(self):
+    #    self.controller.usekeyspace(self.controller.keyspace)
 
 
 class NumKeyspace(cass.CassController):
@@ -80,6 +80,8 @@ class NumKeyspace(cass.CassController):
         """
 
         # We assume that if a query is called then the keyspace exists and should be used
+        # if the keyspace doesn't exist then Cassandra will throw an InvalidRequest error
+        # if the generator is used.
         self.usekeyspace(self.keyspace)
 
         results = self.query(cqlstatement)
