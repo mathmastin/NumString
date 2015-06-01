@@ -27,15 +27,15 @@ import numstring
 
 #cass.createnumkeyspace()
 
-cont = numcass.NumCass(['10.104.251.45'], 2)
+cont = numcass.NumCass(['10.104.251.45'], 1)
 
-cont.create()
+#cont.create()
 
-cont.insertpile()
+#cont.insertpile()
 
-#cass.deletenumkeyspace()
+#cont.delete()
 
-elts = cont.numquery("SELECT * FROM start0")
+#elts = cont.numquery("SELECT * FROM start0 WHERE num_string = '(1, 2)'")
 
-for i in elts:
-    print i
+#for i in elts:
+#    print i

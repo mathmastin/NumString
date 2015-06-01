@@ -24,17 +24,13 @@ class NumCass(numstring.NSPGenerator):
                                                   [i.digits[0], str(i.digits), i.total, count])
             count += 1
 
-    def pilegen(self):
-        """Returns a generator to a NumPile stored in a cassandra keyspace"""
-        pass
-
     def create(self):
         """Create the Keyspace"""
-        self.controller._createnumkeyspace()
+        self.controller.createnumkeyspace()
 
     def delete(self):
         """Delete the Keyspace"""
-        self.controller._deletenumkeyspace()
+        self.controller.deletenumkeyspace()
 
     def numquery(self, cqlstatement):
         """Yields a generator into the results of the query cqlstatement
@@ -45,20 +41,22 @@ class NumCass(numstring.NSPGenerator):
         for i in results:
             # The query yields a unicode list of the digits, so we must format and cast
             # to a list of ints to send to the constructor of NumString
-            yield numstring.NumString(map(int,str(i[0]).lstrip('(').rstrip(')').split(',')))
+            yield numstring.NumString(map(int, str(i[0]).lstrip('(').rstrip(')').split(',')))
 
 
 class NumKeyspace(cass.CassController):
     """Subcalss of CassController for use by NumCass"""
+
     def __init__(self, stringsize=1, hosts=None):
         super(NumKeyspace, self).__init__(hosts)
         self.stringsize = stringsize
         self.keyspace = 'numstring' + str(stringsize)
 
-    def _createnumkeyspace(self):
+    def createnumkeyspace(self):
         """Creates a keyspace using the NumString data model"""
         self.session.execute(
-            "CREATE KEYSPACE IF NOT EXISTS numstring%s WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }",
+            "CREATE KEYSPACE IF NOT EXISTS numstring%s WITH REPLICATION = "
+            "{ 'class' : 'SimpleStrategy', 'replication_factor' : 1 }",
             [self.stringsize])
 
         # Set the keyspace of the session
@@ -73,6 +71,6 @@ class NumKeyspace(cass.CassController):
             self.session.execute(
                 "CREATE TABLE IF NOT EXISTS start%s (num_string varchar PRIMARY KEY, total int, comp int)", [i])
 
-    def _deletenumkeyspace(self):
+    def deletenumkeyspace(self):
         """Deletes the keyspace associated to the NumKeyspace"""
         self.deletekeyspace()
