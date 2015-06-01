@@ -9,6 +9,7 @@ class NumCass(numstring.NSPGenerator):
         """Subclass constructor for NumCass
 
         hosts will default to localhost, but keyspace must be provided
+
         :type stringsize: int
         """
         super(NumCass, self).__init__(stringsize)
@@ -38,9 +39,15 @@ class NumCass(numstring.NSPGenerator):
         """
         results = self.controller.query(cqlstatement)
         for i in results:
-            # The query yields a unicode list of the digits, so we must format and cast
+            # The query yields a unicode version of the digits, so we must format and cast
             # to a list of ints to send to the constructor of NumString
-            yield numstring.NumString(map(int, str(i[0]).lstrip('(').rstrip(')').split(',')))
+            if self.stringsize > 1:
+                yield numstring.NumString(map(int, str(i[0]).lstrip('(').rstrip(')').split(',')))
+            else:
+                yield numstring.NumString([int(i[0][1])])
+
+    def attachkeyspace(self):
+        self.controller.usekeyspace(self.controller.keyspace)
 
 
 class NumKeyspace(cass.CassController):

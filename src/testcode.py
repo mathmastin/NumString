@@ -31,11 +31,15 @@ cont = numcass.NumCass(['10.104.251.45'], 1)
 
 #cont.create()
 
+#cont.attachkeyspace()
+
 #cont.insertpile()
 
-#cont.delete()
+cont.delete()
 
 #elts = cont.numquery("SELECT * FROM start0 WHERE num_string = '(1, 2)'")
+
+#elts = cont.numquery("SELECT * FROM start0")
 
 #for i in elts:
 #    print i
