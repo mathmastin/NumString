@@ -36,7 +36,7 @@ import cassandra
 
 #cont.delete()
 
-numkey = numcass.NumKeyspace(6, ['10.104.251.45'])
+numkey = numcass.NumKeyspace(1, ['10.104.251.45'])
 
 #elts = cont.numquery("SELECT * FROM start0 WHERE num_string = '(1, 2)'")
 
