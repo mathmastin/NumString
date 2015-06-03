@@ -28,23 +28,23 @@ import cassandra
 
 #cass.createnumkeyspace()
 
-#cont = numcass.NumCass(['10.104.251.45'], 1)
+cont = numcass.NumCass(['10.104.251.45'], 1)
 
-#cont.create()
+cont.create()
 
-#cont.insertpile()
+cont.insertpile()
 
 #cont.delete()
 
-numkey = numcass.NumKeyspace(6, ['10.104.251.45'])
+#numkey = numcass.NumKeyspace(6, ['10.104.251.45'])
 
 #elts = cont.numquery("SELECT * FROM start0 WHERE num_string = '(1, 2)'")
 
-elts = numkey.numquery("SELECT * FROM start1")
+#elts = numkey.numquery("SELECT * FROM start1")
 
 
-try:
-    for i in elts:
-        print i
-except cassandra.InvalidRequest as e:
-    print "Keyspace does not exist."
+#try:
+#    for i in elts:
+#        print i
+#except cassandra.InvalidRequest as e:
+#    print "Keyspace does not exist."

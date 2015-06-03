@@ -24,8 +24,8 @@ class NumCass(numstring.NSPGenerator):
         """Inserts the pile into keyspace with a column family for each starting digit"""
         count = 1
         for i in self.getgen():
-            self.controller.session.execute_async("INSERT INTO start%s (num_string, total, comp) VALUES (%s, %s, %s)",
-                                                  [i.digits[0], str(i.digits), i.total, count])
+            self.controller.session.execute_async("INSERT INTO start%s (num_string, comp) VALUES (%s, %s)",
+                                                  [i.digits[0], str(i.digits), count])
             count += 1
 
     def create(self):
@@ -68,7 +68,7 @@ class NumKeyspace(cass.CassController):
         # Now we create the tables
         for i in range(0, 10):
             self.session.execute(
-                "CREATE TABLE IF NOT EXISTS start%s (num_string varchar PRIMARY KEY, total int, comp int)", [i])
+                "CREATE TABLE IF NOT EXISTS start%s (num_string varchar PRIMARY KEY, comp int)", [i])
 
     def deletenumkeyspace(self):
         """Deletes the keyspace associated to the NumKeyspace"""
@@ -93,3 +93,21 @@ class NumKeyspace(cass.CassController):
                 yield numstring.NumString(map(int, str(i[0]).lstrip('(').rstrip(')').split(',')))
             else:
                 yield numstring.NumString([int(i[0][1])])
+
+    def getnhbs(self):
+        """Returns generator into list of neighbors in the NumString graph
+
+        Two NumStrings are neighbors if one can be obtained from the other
+        by adding 1 to some integer in the string and subtracting 1 from another
+        """
+        pass
+
+    def dumpsubgraph(self, vertlist = None):
+        """Dumps neighbor subgraph corresponding to the vertices in vertlist
+        to file for processing by Graphx"""
+        pass
+
+    def updatecomps(self):
+        """Reads connected component data from Graphx generated file
+        and update component information in the NumString keyspace"""
+        pass
