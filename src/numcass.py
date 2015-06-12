@@ -94,13 +94,21 @@ class NumKeyspace(cass.CassController):
             else:
                 yield numstring.NumString([int(i[0][1])])
 
-    def getnhbs(self):
-        """Returns generator into list of neighbors in the NumString graph
+    def getnhbs(self, numstring):
+        """Returns generator into list of neighbors of numstring in the NumString graph
 
         Two NumStrings are neighbors if one can be obtained from the other
         by adding 1 to some integer in the string and subtracting 1 from another
         """
-        pass
+
+        if numstring.stringsize == 0:
+            return None
+
+        for i in range(0,numstring.stringsize):
+            for j in range(0,numstring.stringsize):
+                if i != j:
+                    nbr = numstring.digits
+
 
     def dumpsubgraph(self, vertlist = None):
         """Dumps neighbor subgraph corresponding to the vertices in vertlist

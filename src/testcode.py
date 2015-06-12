@@ -28,7 +28,7 @@ import cassandra
 
 #cass.createnumkeyspace()
 
-#cont = numcass.NumCass(['10.104.251.45'], 1)
+#cont = numcass.NumCass(['10.104.251.45'], 2)
 
 #cont.create()
 
@@ -36,11 +36,11 @@ import cassandra
 
 #cont.delete()
 
-numkey = numcass.NumKeyspace(6, ['10.104.251.45'])
+numkey = numcass.NumKeyspace(2, ['10.104.251.45'])
 
 #elts = cont.numquery("SELECT * FROM start0 WHERE num_string = '(1, 2)'")
 
-elts = numkey.numquery("SELECT * FROM start1")
+elts = numkey.numquery("SELECT * FROM start2")
 
 
 try:
